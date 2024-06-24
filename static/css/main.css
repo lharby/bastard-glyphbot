@@ -1,0 +1,76 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    font-size: 1rem;
+}
+
+.loadingclass {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.loadingclass:after {
+    content: "";
+    display: flex;
+    position: absolute;
+    background-image: url("../img/ajax-loader.svg");
+    width: 2.5rem;
+    height: 2.5rem;
+    background-repeat: no-repeat;
+    top: 0.75rem;
+    right: 0.75rem;
+}
+
+svg tspan {
+    fill: #000000;
+}
+
+text {
+    font-size: 30vw;
+}
+
+.outline {
+    fill: none;
+    stroke: #000000;
+}
+
+.bigcaslon {
+    font-family: 'Big Caslon';
+}
+
+.calluna-regular {
+    font-family: 'Calluna';
+}
+
+.cascadiacode-light {
+    font-family: 'CascadiaCode-Light';
+}
+
+.fette-fraktur {
+    font-family: 'FetteFraktur';
+}
+
+.helveticaneue-bold {
+    font-family: 'Helvetica Neue';
+}
+
+.lores-bold {
+    font-family: 'LoRes 15 OT';
+}
+
+.wsh-grotesk-regular {
+    font-family: 'WSH Grotesk';
+}
+
+.zapfino {
+    font-family: 'Zapfino';
+    font-size: 50vh;
+}
+
