@@ -1,6 +1,6 @@
 # bastard-glyphbot
 
-[<img src="docs/glyph.png" width="100%" style="max-width:320px;" />](docs/glyph.png)
+[<img src="docs/glyph.png" width="320px" style="max-width:100%;" />](docs/glyph.png)
 ---
 
 A bot inspired by [glyphbot](https://github.com/lharby/glyphbot)
