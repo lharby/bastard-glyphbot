@@ -1,6 +1,7 @@
 # bastard-glyphbot
 
 [<img src="docs/glyph.png" width="100%" style="max-width: 20rem;"/>](docs/glyph.png)
+---
 
 A bot inspired by [glyphbot](https://github.com/lharby/glyphbot)
 
