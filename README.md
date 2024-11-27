@@ -9,7 +9,13 @@ It is currently served via [Hono](https://hono.dev/) using [Bun](https://bun.sh)
 
 #### Prerequisites
 
-`node, nvm, bun, hono, p5js`
+```
+- node, 
+- nvm, 
+- bun, 
+- hono, 
+- p5js
+```
 
 Tested with `node ^18`
 
@@ -23,7 +29,11 @@ bun install
 #### To run
 
 ```bash
-bun run index.ts
+bun dev
 ```
+
+Should open up at `http://localhost:3000`
+
+Refresh the page to generate new glyphs. 
 
 This project was created using `bun init` in bun v1.1.13. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.

@@ -1,4 +1,10 @@
-html, body {
+:root {
+    --colour-black: #000000;
+    --colour-white: #ffffff;
+}
+
+html, 
+body {
     margin: 0;
     padding: 0;
     font-family: monospace;
@@ -12,8 +18,8 @@ html, body {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #000000;
-    color: #FFFFFF;
+    background-color: var(--colour-black);
+    color: var(--colour-white);
 }
 
 .loadingclass:after {
@@ -29,7 +35,7 @@ html, body {
 }
 
 svg tspan {
-    fill: #000000;
+    fill: var(--colour-black);
 }
 
 text {
@@ -38,7 +44,7 @@ text {
 
 .outline {
     fill: none;
-    stroke: #000000;
+    stroke: var(--colour-black);
 }
 
 .bigcaslon {
@@ -73,4 +79,3 @@ text {
     font-family: 'Zapfino';
     font-size: 20vw;
 }
-
