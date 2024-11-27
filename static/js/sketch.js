@@ -14,7 +14,6 @@ function preload() {
     loadFont('../fonts/Zapfino.otf');
 }
 
-
 function setup() {
     noCanvas();
     const svgElem = document.createElementNS(svgURL, 'svg');
