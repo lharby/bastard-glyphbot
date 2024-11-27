@@ -1,3 +1,6 @@
+/* global preload() */
+/* global setup() */
+
 const arrElems = [0, 1];
 const svgURL = 'http://www.w3.org/2000/svg';
 
@@ -10,6 +13,7 @@ function preload() {
     loadFont('../fonts/WSH-Grotesk-Regular.otf');
     loadFont('../fonts/Zapfino.otf');
 }
+
 
 function setup() {
     noCanvas();
