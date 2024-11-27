@@ -10,11 +10,11 @@ It is currently served via [Hono](https://hono.dev/) using [Bun](https://bun.sh)
 #### Prerequisites
 
 ```
-- node, 
-- nvm, 
-- bun, 
-- hono, 
-- p5js
+node
+nvm
+bun
+hono
+p5js
 ```
 
 Tested with `node ^18`
@@ -32,8 +32,16 @@ bun install
 bun dev
 ```
 
-Should open up at `http://localhost:3000`
+This will serve the client at `http://localhost:3000`
 
 Refresh the page to generate new glyphs. 
+
+If you use 
+- `http://localhost:3000/index`
+- `http://localhost:3000/test` 
+
+You should see content sent from the server via Hono.
+
+#### Notes
 
 This project was created using `bun init` in bun v1.1.13. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.

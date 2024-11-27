@@ -2,7 +2,8 @@ const View = () => {
     return (
         <html>
             <body>
-                <h1>Hello Hono!</h1>
+                <p>Hello Hono!</p>
+                <p>This is served from the client/View.jsx component</p>
             </body>
         </html>
     )

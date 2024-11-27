@@ -1,14 +1,15 @@
 :root {
     --colour-black: #000000;
     --colour-white: #ffffff;
+    --spacing-mid: 2.5rem;
+    --spacing-sm: 0.75rem;
+    --font-size-root: 100%;
 }
 
 html, 
 body {
-    margin: 0;
-    padding: 0;
     font-family: monospace;
-    font-size: 1rem;
+    font-size: var(--font-size-root);
 }
 
 .loadingclass {
@@ -27,11 +28,11 @@ body {
     display: flex;
     position: absolute;
     background-image: url("../img/ajax-loader.svg");
-    width: 2.5rem;
-    height: 2.5rem;
+    width: var(--spacing-mid);
+    height: var(--spacing-mid);
     background-repeat: no-repeat;
-    top: 0.75rem;
-    right: 0.75rem;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
 }
 
 svg tspan {
