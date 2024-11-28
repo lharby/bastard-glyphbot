@@ -37,4 +37,11 @@ function setup() {
     svgElem.setAttribute('width', windowWidth);
     svgElem.setAttribute('height', windowHeight);
     document.body.appendChild(svgElem);
+    callback();
+}
+
+const callback = () => {
+    // TODO emit some event to an API endpoint
+    const elems = document.querySelector('svg');
+    console.log('Finished', elems);
 }

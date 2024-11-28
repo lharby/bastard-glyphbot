@@ -10,7 +10,7 @@ import View from "./client/View";
 
 app.get('/index', (c) => c.html(<View />));
 
-app.get('/test', (c) => c.html('<pre>Test</pre>'));
+app.get('/test', (c) => c.html('<code>Test</code>'));
 
 app.use('/*', serveStatic({ root: './static/' }));
 
