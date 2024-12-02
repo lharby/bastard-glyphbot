@@ -42,6 +42,18 @@ If you use
 
 You should see content sent from the server via Hono.
 
+```bash
+bun build
+```
+
+This will create build output. 
+
+```bash
+bun run all
+```
+
+As bun is quick this will build the assets and then serve them immediately after. 
+
 #### Notes
 
 This project was created using `bun init` in bun v1.1.13. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
