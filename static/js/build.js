@@ -23,8 +23,41 @@ var removeLoading = () => {
   elem.classList.remove("loadingclass");
 };
 
+// src/assets/js/components/renderSVG.js
+var arrElems = [0, 1];
+var svgURL = "http://www.w3.org/2000/svg";
+var renderSVG = () => {
+  const svgElem = document.createElementNS(svgURL, "svg");
+  for (let [index] of arrElems.entries()) {
+    let rndForm = rndAlphabet();
+    const elem2 = document.createElementNS(svgURL, "text");
+    let xVal = 75;
+    if (index === 1) {
+      xVal = 250;
+    }
+    elem2.innerHTML = `<tspan x=${xVal} y=${window.innerHeight / 2 + 50} >${rndForm}</tspan>`;
+    svgElem.appendChild(elem2);
+  }
+  svgElem.setAttribute("width", window.innerWidth + "px");
+  svgElem.setAttribute("height", window.innerHeight + "px");
+  document.body.appendChild(svgElem);
+};
+
+// src/assets/js/components/reRender.js
+var reRender = () => {
+  document.addEventListener("click", (event) => {
+    const svgElem = document.querySelector("svg");
+    if (event.target.classList.contains("render")) {
+      svgElem.remove();
+      renderSVG();
+    }
+  });
+};
+
 // src/build.tsx
 console.log(rndAlphabet(), rndGlyph(), rndFontFamily());
 setTimeout(() => {
   removeLoading();
+  renderSVG();
+  reRender();
 }, 1000);
