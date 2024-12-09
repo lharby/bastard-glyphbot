@@ -1,4 +1,5 @@
 import { rndAlphabet, rndFontFamily, rndGlyph } from "../utils/fontUtils";
+import { convertFontToGlyph } from "./convertFontToGlyph";
 
 // TODO change this to min 2, max 3;
 const arrElems = [0, 1];
@@ -20,7 +21,8 @@ const renderSVG = () => {
         }
         elem.innerHTML = `<tspan x=${xVal} y=${window.innerHeight /2 + 100} >${rndForm}</tspan>`;
         svgElem.appendChild(elem);
-        console.log(rndForm, className);
+        console.log(rndFontFamilyInit, rndForm, className);
+        convertFontToGlyph(rndFontFamilyInit);
     }
     svgElem.setAttribute('width', (window.innerWidth - 50) + 'px');
     svgElem.setAttribute('height', window.innerHeight + 'px');

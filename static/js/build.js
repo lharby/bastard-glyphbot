@@ -23,6 +23,18 @@ var rndAlphabet = () => arrAlphabet[Math.floor(Math.random() * arrAlphabet.lengt
 var rndGlyph = () => arrGlyphs[Math.floor(Math.random() * arrAlphabet.length)].toString();
 var rndFontFamily = () => arrFontFamilies[Math.floor(Math.random() * arrFontFamilies.length)].toString();
 
+// src/assets/js/components/convertFontToGlyph.js
+var fontPath = "./fonts";
+var convertFontToGlyph = (fontName) => {
+  const url = `${fontPath}/${fontName}`;
+  const buffer = fetch(url).then((res) => res.arrayBuffer());
+  buffer.then((data) => {
+    const font = opentype.parse(data);
+    const arrGlyhps = font.glyphs.glyphs;
+    console.log(arrGlyhps);
+  });
+};
+
 // src/assets/js/components/renderSVG.js
 var arrElems = [0, 1];
 var svgURL = "http://www.w3.org/2000/svg";
@@ -42,7 +54,8 @@ var renderSVG = () => {
     }
     elem2.innerHTML = `<tspan x=${xVal} y=${window.innerHeight / 2 + 100} >${rndForm}</tspan>`;
     svgElem.appendChild(elem2);
-    console.log(rndForm, className);
+    console.log(rndFontFamilyInit, rndForm, className);
+    convertFontToGlyph(rndFontFamilyInit);
   }
   svgElem.setAttribute("width", window.innerWidth - 50 + "px");
   svgElem.setAttribute("height", window.innerHeight + "px");
@@ -52,7 +65,7 @@ var renderSVG = () => {
 // src/assets/js/components/reRender.js
 var reRender = () => {
   document.addEventListener("click", (event) => {
-    const svgElem = document.querySelector("svg");
+    const svgElem = document.querySelector(".svg-element");
     if (event.target.classList.contains("render")) {
       svgElem.remove();
       renderSVG();

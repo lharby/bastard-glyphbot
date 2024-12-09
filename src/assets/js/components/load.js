@@ -4,4 +4,6 @@ const removeLoading = () => {
     elem.classList.remove('loadingclass');
 }
 
-export { removeLoading };
+export { 
+    removeLoading
+};
