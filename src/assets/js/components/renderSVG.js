@@ -12,17 +12,18 @@ const renderSVG = () => {
         const rndFontFamilyInit = rndFontFamily();
         const className = rndFontFamilyInit.split('.')[0].toLowerCase();
         let rndForm = rndAlphabet();
-    	const elem = document.createElementNS(svgURL,'text');
+    	const elem = document.createElementNS(svgURL, 'text');
         let xVal = 75;
+        let yVal = window.innerHeight /2 + 100;
         elem.setAttribute('class', className);
         if (index === 1) {
             xVal = 250;
             rndForm = rndGlyph();
         }
-        elem.innerHTML = `<tspan x=${xVal} y=${window.innerHeight /2 + 100} >${rndForm}</tspan>`;
+        elem.innerHTML = `<tspan x=${xVal} y=${yVal} >${rndForm}</tspan>`;
         svgElem.appendChild(elem);
         console.log(rndFontFamilyInit, rndForm, className);
-        convertFontToGlyph(rndFontFamilyInit);
+        convertFontToGlyph(rndFontFamilyInit, rndForm, xVal, yVal);
     }
     svgElem.setAttribute('width', (window.innerWidth - 50) + 'px');
     svgElem.setAttribute('height', window.innerHeight + 'px');
