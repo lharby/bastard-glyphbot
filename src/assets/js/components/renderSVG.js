@@ -22,8 +22,8 @@ const renderSVG = () => {
         }
         elem.innerHTML = `<tspan x=${xVal} y=${yVal} >${rndForm}</tspan>`;
         svgElem.appendChild(elem);
-        console.log(rndFontFamilyInit, rndForm, className);
         convertFontToGlyph(rndFontFamilyInit, rndForm, xVal, yVal);
+        console.log(rndFontFamilyInit, rndForm, className);
     }
     svgElem.setAttribute('width', (window.innerWidth - 50) + 'px');
     svgElem.setAttribute('height', window.innerHeight + 'px');
