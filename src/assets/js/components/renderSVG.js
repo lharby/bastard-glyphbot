@@ -14,7 +14,7 @@ const renderSVG = () => {
         let rndForm = rndAlphabet();
     	const elem = document.createElementNS(svgURL, 'text');
         let xVal = 75;
-        let yVal = window.innerHeight /2 + 100;
+        let yVal = 200;
         elem.setAttribute('class', className);
         if (index === 1) {
             xVal = 250;
@@ -23,7 +23,7 @@ const renderSVG = () => {
         elem.innerHTML = `<tspan x=${xVal} y=${yVal} >${rndForm}</tspan>`;
         svgElem.appendChild(elem);
         console.log(rndFontFamilyInit, rndForm, className);
-        convertFontToGlyph(rndFontFamilyInit, rndForm, xVal, yVal);
+        convertFontToGlyph(rndFontFamilyInit, rndForm, xVal, yVal); // TODO get this working! Move outside of loop?
     }
     svgElem.setAttribute('width', (window.innerWidth - 50) + 'px');
     svgElem.setAttribute('height', window.innerHeight + 'px');

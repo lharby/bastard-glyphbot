@@ -8,9 +8,9 @@ const convertFontToGlyph = (fontName, letter, x, y) => {
 
     buffer.then(data => {
         const font = opentype.parse(data);
-        const glyph = font.getPath(letter);
+        const glyph = font.getPath(letter, x, y, 400);
         const svgGlyph = glyph.toSVG();
-        const template = `<svg x=${x} y=${y}>${svgGlyph}</svg>`;
+        const template = `<g x=${x} y=${y}>${svgGlyph}</g>`;
         svgElem.insertAdjacentHTML('beforeend', template);
         svgElem.setAttribute('width', (window.innerWidth - 50) + 'px');
         svgElem.setAttribute('height', window.innerHeight + 'px');

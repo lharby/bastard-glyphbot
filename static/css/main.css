@@ -35,6 +35,11 @@ body {
     right: var(--spacing-sm);
 }
 
+svg {
+    overflow: auto;
+    min-width: 50vh;
+}
+
 svg tspan {
     fill: var(--colour-black);
 }

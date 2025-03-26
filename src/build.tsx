@@ -5,6 +5,11 @@ import { reRender } from './assets/js/components/reRender';
 setTimeout(() => {
     removeLoading();
     renderSVG();
-    reRender();
 }, 1000);
 
+document.addEventListener('DOMContentLoaded', () => {
+    const trigger = document.querySelector<HTMLButtonElement>('.render');
+    trigger?.addEventListener('click', () => {
+        reRender();
+    });
+});

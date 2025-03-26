@@ -25,34 +25,40 @@ var rndFontFamily = () => arrFontFamilies[Math.floor(Math.random() * arrFontFami
 
 // src/assets/js/components/convertFontToGlyph.js
 var fontPath = "./fonts";
-var svgElem = document.querySelector(".svg-element");
+var svgElem = document.querySelectorAll(".svg-element");
+var svgURL = "http://www.w3.org/2000/svg";
+if (svgElem) {
+  svgElem.forEach((item) => item.remove());
+}
 var convertFontToGlyph = (fontName, letter, x, y) => {
   const url = `${fontPath}/${fontName}`;
   const buffer = fetch(url).then((res) => res.arrayBuffer());
   buffer.then((data) => {
+    const svgElem2 = document.createElementNS(svgURL, "svg");
+    svgElem2.setAttribute("class", "svg-element");
     const font = opentype.parse(data);
-    const glyph = font.getPath(letter);
+    const glyph = font.getPath(letter, x, y, 400);
     const svgGlyph = glyph.toSVG();
-    const template = `<svg x=${x} y=${y}>${svgGlyph}</svg>`;
-    svgElem.insertAdjacentHTML("beforeend", template);
-    svgElem.setAttribute("width", window.innerWidth - 50 + "px");
-    svgElem.setAttribute("height", window.innerHeight + "px");
+    const template = `<g x=${x} y=${y}>${svgGlyph}</g>`;
+    svgElem2.insertAdjacentHTML("beforeend", template);
+    svgElem2.setAttribute("width", window.innerWidth - 50 + "px");
+    svgElem2.setAttribute("height", window.innerHeight + "px");
   });
 };
 
 // src/assets/js/components/renderSVG.js
 var arrElems = [0, 1];
-var svgURL = "http://www.w3.org/2000/svg";
+var svgURL2 = "http://www.w3.org/2000/svg";
 var renderSVG = () => {
-  const svgElem2 = document.createElementNS(svgURL, "svg");
+  const svgElem2 = document.createElementNS(svgURL2, "svg");
   svgElem2.setAttribute("class", "svg-element");
   for (let [index] of arrElems.entries()) {
     const rndFontFamilyInit = rndFontFamily();
     const className = rndFontFamilyInit.split(".")[0].toLowerCase();
     let rndForm = rndAlphabet();
-    const elem2 = document.createElementNS(svgURL, "text");
+    const elem2 = document.createElementNS(svgURL2, "text");
     let xVal = 75;
-    let yVal = window.innerHeight / 2 + 100;
+    let yVal = 200;
     elem2.setAttribute("class", className);
     if (index === 1) {
       xVal = 250;
@@ -65,23 +71,25 @@ var renderSVG = () => {
   }
   svgElem2.setAttribute("width", window.innerWidth - 50 + "px");
   svgElem2.setAttribute("height", window.innerHeight + "px");
-  document.body.appendChild(svgElem2);
 };
 
 // src/assets/js/components/reRender.js
 var reRender = () => {
-  document.addEventListener("click", (event) => {
-    const svgElem2 = document.querySelector(".svg-element");
-    if (event.target.classList.contains("render")) {
-      svgElem2.remove();
-      renderSVG();
-    }
-  });
+  const svgElem2 = document.querySelector(".svg-element");
+  if (svgElem2) {
+    svgElem2.remove();
+    renderSVG();
+  }
 };
 
 // src/build.tsx
 setTimeout(() => {
   removeLoading();
   renderSVG();
-  reRender();
 }, 1000);
+document.addEventListener("DOMContentLoaded", () => {
+  const trigger = document.querySelector(".render");
+  trigger?.addEventListener("click", () => {
+    reRender();
+  });
+});
