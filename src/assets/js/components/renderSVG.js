@@ -6,6 +6,8 @@ const arrElems = [0, 1];
 const svgURL = 'http://www.w3.org/2000/svg';
 
 const renderSVG = () => {
+    // TODO don't create this, just append it to the single svg-element. 
+    // Do we need to store the fonts in memory? 
 	const svgElem = document.createElementNS(svgURL, 'svg');
     svgElem.setAttribute('class', 'svg-element');
 	for (let [index] of arrElems.entries()) {
@@ -23,10 +25,11 @@ const renderSVG = () => {
         elem.innerHTML = `<tspan x=${xVal} y=${yVal} >${rndForm}</tspan>`;
         svgElem.appendChild(elem);
         console.log(rndFontFamilyInit, rndForm, className);
-        convertFontToGlyph(rndFontFamilyInit, rndForm, xVal, yVal); // TODO get this working! Move outside of loop?
+        convertFontToGlyph(rndFontFamilyInit, rndForm, xVal, yVal);
     }
     svgElem.setAttribute('width', (window.innerWidth - 50) + 'px');
     svgElem.setAttribute('height', window.innerHeight + 'px');
+    // After convertFontToGlyph can we remove this from the DOM?
     document.body.appendChild(svgElem);
 }
 
