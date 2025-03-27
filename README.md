@@ -14,6 +14,7 @@ node
 nvm
 bun
 hono
+opentype
 p5js
 ```
 
