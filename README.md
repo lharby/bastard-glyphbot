@@ -57,3 +57,7 @@ As bun is quick this will build the assets and then serve them immediately after
 #### Notes
 
 This project was created using `bun init` in bun v1.1.13. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+
+#### Todo
+
+[Tood list](/todo)
