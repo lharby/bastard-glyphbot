@@ -30,6 +30,7 @@ const renderSVG = () => {
     svgElem.setAttribute('width', (window.innerWidth - 50) + 'px');
     svgElem.setAttribute('height', window.innerHeight + 'px');
     // After convertFontToGlyph can we remove this from the DOM?
+    // Or add it to an element off the canvas/hidden etc. 
     document.body.appendChild(svgElem);
 }
 
