@@ -12,6 +12,15 @@ body {
     font-size: var(--font-size-root);
 }
 
+a,
+a:visited {
+    color: var(--colour-black);
+}
+
+a:hover {
+    text-decoration: none;
+}
+
 .loadingclass {
     position: fixed;
     top: 0;
@@ -84,4 +93,15 @@ text {
 .zapfino {
     font-family: 'Zapfino';
     font-size: 20vw;
+}
+
+.header__list {
+    display: flex;
+    list-style: none;
+    margin: 0 0 1rem 0;
+    padding: 0;
+}
+
+.header__list li:not(:last-child) {
+    margin-right: 1rem;
 }

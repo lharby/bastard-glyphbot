@@ -1,7 +1,46 @@
+// src/assets/js/utils/includeHTML.js
+class IncludeHTML extends HTMLElement {
+  constructor() {
+    super();
+    this.innerHTML = "Loading...";
+    this.loadContent();
+  }
+  async loadContent() {
+    const source = this.getAttribute("src");
+    if (!source) {
+      throw new Error("No src attribute given.");
+    }
+    const response = await fetch(source);
+    if (response.status !== 200) {
+      throw new Error(`Could not load resource: ${source}`);
+    }
+    const content = await response.text();
+    this.innerHTML = content;
+  }
+}
+window.customElements.define("html-include", IncludeHTML);
+
+// src/assets/js/utils/globals.js
+var htmlElem = document.querySelector("html");
+
 // src/assets/js/components/load.js
 var elem = document.querySelector("#loading");
 var removeLoading = () => {
   elem.classList.remove("loadingclass");
+};
+
+// src/assets/js/utils/setDirectoryNames.js
+var htmlElem2 = document.querySelector("html");
+var arrPaths = document.location.pathname.split("/");
+var newPaths = arrPaths.map((item) => item.replace(".html", ""));
+var primaryDir = arrPaths[1];
+var pathnames = newPaths.filter((item) => item !== "");
+var setDirectoryNames = () => {
+  if (!primaryDir) {
+    htmlElem2.classList.add("index");
+  } else {
+    htmlElem2.classList.add(...pathnames);
+  }
 };
 
 // src/assets/js/utils/fontUtils.js
@@ -24,19 +63,22 @@ var rndGlyph = () => arrGlyphs[Math.floor(Math.random() * arrAlphabet.length)].t
 var rndFontFamily = () => arrFontFamilies[Math.floor(Math.random() * arrFontFamilies.length)].toString();
 
 // src/assets/js/components/convertFontToGlyph.js
-var fontPath = "./fonts";
+var fontPath = "/fonts";
 var svgElem = document.querySelector(".svg-element");
 var convertFontToGlyph = (fontName, letter, x, y) => {
   const url = `${fontPath}/${fontName}`;
   const buffer = fetch(url).then((res) => res.arrayBuffer());
   buffer.then((data) => {
-    const font = opentype.parse(data);
-    const glyph = font.getPath(letter, x, y, 400);
-    const svgGlyph = glyph.toSVG();
-    const template = `<g x=${x} y=${y}>${svgGlyph}</g>`;
-    svgElem.insertAdjacentHTML("beforeend", template);
-    svgElem.setAttribute("width", window.innerWidth - 50 + "px");
-    svgElem.setAttribute("height", window.innerHeight + "px");
+    if (svgElem) {
+      const font = opentype.parse(data);
+      const glyph = font.getPath(letter, x, y, 400);
+      const svgGlyph = glyph.toSVG();
+      const template = `<g x=${x} y=${y}>${svgGlyph}</g>`;
+      svgElem.insertAdjacentHTML("beforeend", template);
+      svgElem.setAttribute("width", window.innerWidth - 50 + "px");
+      svgElem.setAttribute("height", window.innerHeight + "px");
+      console.log(font);
+    }
   });
 };
 
@@ -80,11 +122,16 @@ var reRender = () => {
 // src/build.tsx
 setTimeout(() => {
   removeLoading();
-  renderSVG();
-}, 1000);
+  if (htmlElem?.classList.contains("index")) {
+    renderSVG();
+  }
+}, 100);
 document.addEventListener("DOMContentLoaded", () => {
-  const trigger = document.querySelector(".render");
-  trigger?.addEventListener("click", () => {
+  setDirectoryNames();
+});
+document.addEventListener("click", (event) => {
+  const trigger = event.target;
+  if (trigger.classList.contains("render")) {
     reRender();
-  });
+  }
 });

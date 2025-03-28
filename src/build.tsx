@@ -1,15 +1,24 @@
+import './assets/js/utils/includeHTML';
+import { htmlElem } from './assets/js/utils/globals';
 import { removeLoading } from './assets/js/components/load';
+import { setDirectoryNames } from './assets/js/utils/setDirectoryNames';
 import { renderSVG } from './assets/js/components/renderSVG';
 import { reRender } from './assets/js/components/reRender';
 
 setTimeout(() => {
     removeLoading();
-    renderSVG();
-}, 1000);
+    if (htmlElem?.classList.contains('index')) {
+        renderSVG();
+    }
+}, 100);
 
 document.addEventListener('DOMContentLoaded', () => {
-    const trigger = document.querySelector<HTMLButtonElement>('.render');
-    trigger?.addEventListener('click', () => {
+    setDirectoryNames();
+});
+
+document.addEventListener('click', (event) => {
+    const trigger = event.target as HTMLButtonElement;
+        if (trigger.classList.contains('render')) {
         reRender();
-    });
+    }
 });
