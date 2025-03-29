@@ -13,5 +13,6 @@ const setDirectoryNames = () => {
 }
 
 export {
+    primaryDir,
     setDirectoryNames
 }

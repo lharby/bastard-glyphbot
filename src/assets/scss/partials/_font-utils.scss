@@ -1,0 +1,99 @@
+/*
+Luke Harby
+slackwise LTD
+https://slackwise.org.uk
+2012 - present
+*/
+
+@use '../functions/fonts' as font;
+
+.bigcaslon {
+    .title,
+    .characters {
+        font-family: font.$font__bigcaslon;
+    }
+}
+
+.calluna-regular {
+    .title,
+    .characters {
+        font-family: font.$font__calluna;
+    }
+}
+
+.cascadiacode-light {
+    .title,
+    .characters {
+        font-family: font.$font__cascadia;
+    }
+}
+
+.fette-fraktur {
+    .title,
+    .characters {
+        font-family: font.$font__fettefraktur;
+    }
+}
+
+.helveticaneue-bold {
+    .title,
+    .characters {
+        font-family: font.$font__helvetica;
+        }
+}
+
+.lores-bold {
+    .title,
+    .characters {
+        font-family: font.$font__lores;
+    }
+}
+
+.wsh-grotesk-regular {
+    .title,
+    .characters {
+        font-family: font.$font__wsh-grotesk;
+    }
+}
+
+.zapfino {
+    .title,
+    .characters {
+        font-family: font.$font__zapfino;
+    }
+}
+
+.svg-element {
+    .bigcaslon {
+        font-family: font.$font__bigcaslon;
+    }
+    
+    .calluna-regular {
+        font-family: font.$font__calluna;
+    }
+    
+    .cascadiacode-light {
+        font-family: font.$font__cascadia;
+    }
+    
+    .fette-fraktur {
+        font-family: font.$font__fettefraktur;
+    }
+    
+    .helveticaneue-bold {
+        font-family: font.$font__helvetica;
+    }
+    
+    .lores-bold {
+        font-family: font.$font__lores;
+    }
+    
+    .wsh-grotesk-regular {
+        font-family: font.$font__wsh-grotesk;
+    }
+    
+    .zapfino {
+        font-family: font.$font__zapfino;
+        font-size: 20vw;
+    }
+}

@@ -119,6 +119,25 @@ var reRender = () => {
   }
 };
 
+// src/assets/js/components/fontMap.js
+var fontPath2 = "/fonts";
+var fontMap = (fontName) => {
+  const url = `${fontPath2}/${fontName}`;
+  const buffer = fetch(url).then((res) => res.arrayBuffer());
+  buffer.then((data) => {
+    const wrapper = htmlElem.querySelector(".characters ul");
+    const font = opentype.parse(data);
+    const glyphs2 = font.glyphs.glyphs;
+    for (const [key, value] of Object.entries(glyphs2)) {
+      if (value.name !== null) {
+        const template = `<li>${value.name}</li>`;
+        wrapper.insertAdjacentHTML("beforeend", template);
+        console.log(value);
+      }
+    }
+  });
+};
+
 // src/build.tsx
 setTimeout(() => {
   removeLoading();
@@ -128,6 +147,9 @@ setTimeout(() => {
 }, 100);
 document.addEventListener("DOMContentLoaded", () => {
   setDirectoryNames();
+  if (primaryDir.match("files")) {
+    fontMap("Calluna-Regular.otf");
+  }
 });
 document.addEventListener("click", (event) => {
   const trigger = event.target;

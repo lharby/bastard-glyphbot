@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "bun run --watch ./src/index.ts",
     "build": "bun ./src/bun.build.js",
-    "all": "bun run build && bun run dev -c"
+    "build:styles": "bun run sass ./src/assets/scss/main.scss ./static/css/main.css --style compressed --no-charset",
+    "all": "bun run build:styles && bun run build && bun run dev -c"
   },
   "devDependencies": {
     "@types/bun": "latest"
@@ -15,6 +16,7 @@
   },
   "dependencies": {
     "hono": "^4.4.6",
-    "p5": "^1.9.4"
+    "p5": "^1.9.4",
+    "sass": "^1.83.4"
   }
 }
