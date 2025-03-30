@@ -16,7 +16,7 @@ const renderSVG = () => {
         let rndForm = rndAlphabet();
     	const elem = document.createElementNS(svgURL, 'text');
         let xVal = 75;
-        let yVal = 200;
+        let yVal = 400;
         elem.setAttribute('class', className);
         if (index === 1) {
             xVal = 250;

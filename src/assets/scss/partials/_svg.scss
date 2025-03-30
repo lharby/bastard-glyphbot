@@ -1,0 +1,18 @@
+svg {
+    overflow: auto;
+    min-width: 50vh;
+
+    tspan {
+        fill: var(--colour-black);
+    }
+    
+    text {
+        font-size: 30vw;
+    }
+    
+    .outline {
+        fill: none;
+        stroke: var(--colour-black);
+    }
+}
+

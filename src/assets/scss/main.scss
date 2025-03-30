@@ -9,5 +9,8 @@ https://slackwise.org.uk
 
 @use './core/layout';
 
+@use './partials/loading';
+@use './partials/header';
+@use './partials/svg';
 @use './partials/font-utils';
 @use './partials/characters';

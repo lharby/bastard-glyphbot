@@ -1,0 +1,22 @@
+.loadingclass {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--colour-black);
+    color: var(--colour-white);
+
+    &::after {
+        content: "";
+        display: flex;
+        position: absolute;
+        background-image: url("../img/ajax-loader.svg");
+        width: var(--spacing-mid);
+        height: var(--spacing-mid);
+        background-repeat: no-repeat;
+        top: var(--spacing-sm);
+        right: var(--spacing-sm);
+    }
+}

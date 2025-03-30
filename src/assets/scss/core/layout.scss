@@ -33,54 +33,10 @@ a:hover {
     text-decoration: none;
 }
 
-.loadingclass {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--colour-black);
-    color: var(--colour-white);
+.page-wrapper {
+    padding: 5rem 0;
 }
 
-.loadingclass:after {
-    content: "";
-    display: flex;
-    position: absolute;
-    background-image: url("../img/ajax-loader.svg");
-    width: var(--spacing-mid);
-    height: var(--spacing-mid);
-    background-repeat: no-repeat;
-    top: var(--spacing-sm);
-    right: var(--spacing-sm);
-}
-
-svg {
-    overflow: auto;
-    min-width: 50vh;
-}
-
-svg tspan {
-    fill: var(--colour-black);
-}
-
-text {
-    font-size: 30vw;
-}
-
-.outline {
-    fill: none;
-    stroke: var(--colour-black);
-}
-
-.header__list {
-    display: flex;
-    list-style: none;
-    margin: 0 0 1rem 0;
-    padding: 0;
-}
-
-.header__list li:not(:last-child) {
-    margin-right: 1rem;
+.title {
+    padding-top: 4rem;
 }
