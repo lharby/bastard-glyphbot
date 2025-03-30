@@ -1,3 +1,12 @@
+/*
+Luke Harby
+slackwise LTD
+https://slackwise.org.uk
+2012 - present
+*/
+
+@use '../functions/variables' as vars;
+
 .header {
     position: fixed;
     top: 0;
@@ -6,6 +15,7 @@
     backdrop-filter: blur(0.5rem);
     background-color: hsla(0,0%,100%,.8);
     padding: 0.5rem;
+    z-index: vars.$z-index--1;
 
     &__list {
         display: flex;

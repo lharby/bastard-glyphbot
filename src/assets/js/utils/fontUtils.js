@@ -23,6 +23,8 @@ const rndGlyph = () => arrGlyphs[Math.floor(Math.random() * arrAlphabet.length)]
 const rndFontFamily = () => arrFontFamilies[Math.floor(Math.random() * arrFontFamilies.length)].toString();
 
 export {
+    arrAlphabet,
+    arrGlyphs,
     arrFontFamilies,
     rndAlphabet,
     rndGlyph,

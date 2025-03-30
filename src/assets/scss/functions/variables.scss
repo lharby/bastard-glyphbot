@@ -5,6 +5,15 @@ https://slackwise.org.uk
 2012 - present
 */
 
+/* css variables */
+:root {
+    --colour-black: #000000;
+    --colour-white: #ffffff;
+    --spacing-mid: 2.5rem;
+    --spacing-sm: 0.75rem;
+    --font-size-root: 100%;
+}
+
 /* scss variables */
 /* colours */
 $palest-grey: #f9f9f9;
@@ -21,3 +30,6 @@ $black: #000;
 
 $text-white: #ffffff;
 $text-black: #000000;
+
+/* z-index */
+$z-index--1: 1;

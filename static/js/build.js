@@ -119,23 +119,38 @@ var reRender = () => {
   }
 };
 
-// src/assets/js/components/fontMap.js
-var fontPath2 = "/fonts";
-var fontMap = (fontName) => {
-  const url = `${fontPath2}/${fontName}`;
-  const buffer = fetch(url).then((res) => res.arrayBuffer());
-  buffer.then((data) => {
-    const wrapper = htmlElem.querySelector(".characters ul");
-    const font = opentype.parse(data);
-    const glyphs2 = font.glyphs.glyphs;
-    for (const [key, value] of Object.entries(glyphs2)) {
-      if (value.name !== null) {
-        const template = `<li>${value.name}</li>`;
-        wrapper.insertAdjacentHTML("beforeend", template);
-        console.log(value);
+// src/assets/js/utils/waitForElement.js
+var waitForElement = (selector) => {
+  return new Promise((resolve) => {
+    const interval = setInterval(() => {
+      const element = document.querySelector(selector);
+      if (element) {
+        clearInterval(interval);
+        resolve(element);
       }
-    }
+    }, 100);
   });
+};
+
+// src/assets/js/components/fontMap.js
+var fontMap = () => {
+  waitForElement(".characters ul").then(() => {
+    useCallback();
+  }).catch((error) => {
+    console.error("Error:", error);
+  });
+  const useCallback = () => {
+    const wrapper = htmlElem.querySelector(".characters ul");
+    const arrGlyphMap = arrAlphabet.concat(arrGlyphs);
+    arrGlyphMap.forEach((item, index) => {
+      if (item) {
+        const template = `<li>${item}<span class="index-number">${index}</span></li>`;
+        wrapper.insertAdjacentHTML("beforeend", template);
+      } else {
+        console.log("item: ", item);
+      }
+    });
+  };
 };
 
 // src/build.tsx

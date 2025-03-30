@@ -1,3 +1,12 @@
+/*
+Luke Harby
+slackwise LTD
+https://slackwise.org.uk
+2012 - present
+*/
+
+@use '../functions/variables' as vars;
+
 .loadingclass {
     position: fixed;
     top: 0;
@@ -7,6 +16,7 @@
     width: 100%;
     background-color: var(--colour-black);
     color: var(--colour-white);
+    z-index: vars.$z-index--1 + 1;
 
     &::after {
         content: "";

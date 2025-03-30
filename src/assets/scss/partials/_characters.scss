@@ -18,12 +18,23 @@ https://slackwise.org.uk
 
         li {
             display: flex;
+            position: relative;
+            font-size: 1.5rem;
             flex: 0 0 5%;
             max-width: calc(5% - .375rem);
             min-height: 4rem;
             justify-content: center;
             align-items: center;
             background-color: vars.$ash-grey;
+        }
+
+        .index-number {
+            position: absolute;
+            bottom: 0.25rem;
+            left: 0.25rem;
+            font-family: monospace;
+            font-size: 0.5rem;
+            color: vars.$mid-grey--light;
         }
     }
 }
