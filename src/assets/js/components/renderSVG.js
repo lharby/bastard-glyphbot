@@ -1,5 +1,5 @@
-import { rndAlphabet, rndFontFamily, rndGlyph } from "../utils/fontUtils";
-import { convertFontToGlyph } from "./convertFontToGlyph";
+import { rndAlphabet, rndFontFamily, rndGlyph } from '../utils/fontUtils';
+import { convertFontToGlyph } from './convertFontToGlyph';
 
 // TODO change this to min 2, max 3;
 const arrElems = [0, 1];

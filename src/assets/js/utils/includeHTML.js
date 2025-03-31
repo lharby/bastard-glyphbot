@@ -1,14 +1,14 @@
 class IncludeHTML extends HTMLElement {
     constructor() {
         super();
-        this.innerHTML = "Loading...";
+        this.innerHTML = 'Loading...';
         this.loadContent();
     }
 
     async loadContent() {
-        const source = this.getAttribute("src");
+        const source = this.getAttribute('src');
         if (!source) {
-            throw new Error("No src attribute given.");
+            throw new Error('No src attribute given.');
         }
         const response = await fetch(source);
         if (response.status !== 200) {
@@ -19,4 +19,4 @@ class IncludeHTML extends HTMLElement {
     }
 }
   
-window.customElements.define("html-include", IncludeHTML);
+window.customElements.define('html-include', IncludeHTML);

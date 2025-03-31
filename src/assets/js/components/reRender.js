@@ -1,4 +1,4 @@
-import { renderSVG } from "./renderSVG";
+import { renderSVG } from './renderSVG';
 
 const reRender = () => {
     const svgElem = document.querySelector('.svg-element');

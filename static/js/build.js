@@ -143,8 +143,8 @@ var fontMap = () => {
     const wrapper = htmlElem.querySelector(".characters ul");
     const arrGlyphMap = arrAlphabet.concat(arrGlyphs);
     arrGlyphMap.forEach((item, index) => {
-      if (item) {
-        const template = `<li>${item}<span class="index-number">${index}</span></li>`;
+      if (item !== null) {
+        const template = `<li>${item}<span class='index-number'>${index}</span></li>`;
         wrapper.insertAdjacentHTML("beforeend", template);
       } else {
         console.log("item: ", item);
