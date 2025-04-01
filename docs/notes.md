@@ -1,0 +1,11 @@
+#### Notes
+Here's a few important things about fonts you should keep in mind:
+- A space is a character. Letters and symbols are drawn with contours, and a space has no contours. But it is a character, so it has a unicode value assigned to it. When you type a spacebar on your keyboard, the typographic layout application inserts the glyph associated with the unicode value 0020, which is the standard space character. There aren't contours in the space glyph, but it has a width, which tells the layout application how wide a space should be. 
+
+- Unicode is a system of encoding where a hex value can be associated with glyphs in a font file. In this way a layout application can expect to usually get a "Capital A" glyph when inserting the glyph associated with unicode value 0041.
+
+- There's no "normal" number of characters or glyphs in a font. A font that only supports western european languages (such as English, Spanish, French, etc) might only have 100-200 characters in it. A font that also supports Cyrillic (Russian, and others) and Greek might have 600-700. A font that supports Simplified Chinese might have 60,000. Any font could have any number of glyphs or characters.
+
+- This one might be confusing. There's a difference between Glyphs and Characters in a font. A font contains a lot of Glyphs (which could contain contours to draw shapes or have no contours) and some number of characters. Characters refers to glyphs that have a Unicode value associated with them. Many Glyphs won't have a unicode value associated with them on purpose, as they can be used by the layout application by executing feature code in the font file. I mention this because it looks like you're listing the number of "Glyphs" in a font, but if you got that total by counting the number of unicode encodings, you should call that the number of Characters in a font.  
+
+- If a glyph has an associated Unicode value, it might have contours, or it might not (if it's a space character. ) Whether it has an encoding doesn't tell you if the glyph is a space character or if it has contours to draw a shape.
