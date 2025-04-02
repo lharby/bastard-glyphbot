@@ -1,3 +1,4 @@
+// TODO change this to use opentypejs import
 import { htmlElem } from '../utils/globals';
 import { arrAlphabet, arrGlyphs } from '../utils/fontUtils';
 import { waitForElement } from '../utils/waitForElement';
