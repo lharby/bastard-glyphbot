@@ -1,3 +1,9 @@
+/*
+Luke Harby
+slackwise LTD
+https://slackwise.org.uk
+2012 - present
+*/
 
 const waitForElement = (selector) => {
     return new Promise((resolve) => {

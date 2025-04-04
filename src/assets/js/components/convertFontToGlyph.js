@@ -1,3 +1,10 @@
+/*
+Luke Harby
+slackwise LTD
+https://slackwise.org.uk
+2012 - present
+*/
+
 const fontPath = '/fonts';
 const svgElem = document.querySelector('.svg-element');
 

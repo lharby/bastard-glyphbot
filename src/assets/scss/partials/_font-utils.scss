@@ -8,6 +8,8 @@ https://slackwise.org.uk
 @use '../functions/fonts' as font;
 
 .bigcaslon {
+    font-family: font.$font__bigcaslon;
+
     .title,
     .characters {
         font-family: font.$font__bigcaslon;
@@ -15,6 +17,8 @@ https://slackwise.org.uk
 }
 
 .calluna-regular {
+    font-family: font.$font__calluna;
+
     .title,
     .characters {
         font-family: font.$font__calluna;
@@ -22,6 +26,8 @@ https://slackwise.org.uk
 }
 
 .cascadiacode-light {
+    font-family: font.$font__cascadia;
+
     .title,
     .characters {
         font-family: font.$font__cascadia;
@@ -29,6 +35,8 @@ https://slackwise.org.uk
 }
 
 .fette-fraktur {
+    font-family: font.$font__fettefraktur;
+
     .title,
     .characters {
         font-family: font.$font__fettefraktur;
@@ -36,13 +44,17 @@ https://slackwise.org.uk
 }
 
 .helveticaneue-bold {
+    font-family: font.$font__helvetica;
+
     .title,
     .characters {
         font-family: font.$font__helvetica;
-        }
+    }
 }
 
 .lores-bold {
+    font-family: font.$font__lores;
+
     .title,
     .characters {
         font-family: font.$font__lores;
@@ -50,6 +62,8 @@ https://slackwise.org.uk
 }
 
 .wsh-grotesk-regular {
+    font-family: font.$font__wsh-grotesk;
+
     .title,
     .characters {
         font-family: font.$font__wsh-grotesk;
@@ -57,6 +71,8 @@ https://slackwise.org.uk
 }
 
 .zapfino {
+    font-family: font.$font__zapfino;
+
     .title,
     .characters {
         font-family: font.$font__zapfino;

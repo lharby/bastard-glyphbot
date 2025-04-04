@@ -6,6 +6,7 @@ import { renderSVG } from './assets/js/components/renderSVG';
 import { reRender } from './assets/js/components/reRender';
 import { fontMap } from './assets/js/components/fontMap';
 import { primaryDir } from './assets/js/utils/setDirectoryNames';
+import { fontSwitcher } from './assets/js/components/fontSwitcher';
 
 setTimeout(() => {
     removeLoading();
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setDirectoryNames();
     if (primaryDir.match('files')) {
         fontMap('Calluna-Regular.otf');
+        fontSwitcher();
     }
 });
 

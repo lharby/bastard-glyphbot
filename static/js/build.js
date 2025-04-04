@@ -133,22 +133,59 @@ var waitForElement = (selector) => {
 };
 
 // src/assets/js/components/fontMap.js
-var fontMap = () => {
-  waitForElement(".characters ul").then(() => {
+var fontPath2 = "../fonts";
+var fontMap = (fontName) => {
+  const glyphCount = htmlElem.querySelector(".glyph-count");
+  waitForElement("#characters ul").then(() => {
     useCallback();
   }).catch((error) => {
     console.error("Error:", error);
   });
   const useCallback = () => {
-    const wrapper = htmlElem.querySelector(".characters ul");
-    const arrGlyphMap = arrAlphabet.concat(arrGlyphs);
-    arrGlyphMap.forEach((item, index) => {
-      if (item !== null) {
-        const template = `<li>${item}<span class='index-number'>${index}</span></li>`;
-        wrapper.insertAdjacentHTML("beforeend", template);
-      } else {
-        console.log("item: ", item);
+    const url = `${fontPath2}/${fontName}`;
+    const buffer = fetch(url).then((res) => res.arrayBuffer());
+    if (glyphCount) {
+      glyphCount.textContent = "";
+    }
+    buffer.then((data) => {
+      const wrapper = htmlElem.querySelector("#characters ul");
+      const font = opentype.parse(data);
+      const glyphs2 = font.glyphs.glyphs;
+      for (const [key, value] of Object.entries(glyphs2)) {
+        if (typeof value.unicode !== "undefined" && !value.name.startsWith("uni") && value.path.commands.length !== 0) {
+          const template = `<li>
+                        ${String.fromCharCode(value.unicode)}
+                        <span class='index-number'>${key}</span>
+                    </li>`;
+          wrapper.insertAdjacentHTML("beforeend", template);
+        }
       }
+      if (glyphCount) {
+        glyphCount.textContent = wrapper.querySelectorAll("li").length;
+      }
+    });
+  };
+};
+fontMap("BigCaslon.otf");
+
+// src/assets/js/components/fontSwitcher.js
+var fontSwitcher = () => {
+  waitForElement("#characters").then(() => {
+    useCallback();
+  }).catch((error) => {
+    console.error("Error:", error);
+  });
+  const useCallback = () => {
+    const trigger = htmlElem.querySelector('[name="change-font"]');
+    const wrapper = htmlElem.querySelector("#characters");
+    const list = wrapper.querySelector("ul");
+    trigger.addEventListener("change", (event) => {
+      list.replaceChildren();
+      wrapper.removeAttribute("class");
+      wrapper.classList.add(event.target.value);
+      const { text } = [...trigger.options].find((option) => option.selected);
+      fontMap(`${text}.otf`);
+      return;
     });
   };
 };
@@ -164,6 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setDirectoryNames();
   if (primaryDir.match("files")) {
     fontMap("Calluna-Regular.otf");
+    fontSwitcher();
   }
 });
 document.addEventListener("click", (event) => {

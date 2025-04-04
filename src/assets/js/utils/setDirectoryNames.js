@@ -1,3 +1,10 @@
+/*
+Luke Harby
+slackwise LTD
+https://slackwise.org.uk
+2012 - present
+*/
+
 const htmlElem = document.querySelector('html');
 const arrPaths = document.location.pathname.split('/');
 const newPaths = arrPaths.map(item => item.replace('.html', ''));

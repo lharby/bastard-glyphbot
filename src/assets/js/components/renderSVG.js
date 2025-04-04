@@ -1,3 +1,10 @@
+/*
+Luke Harby
+slackwise LTD
+https://slackwise.org.uk
+2012 - present
+*/
+
 import { rndAlphabet, rndFontFamily, rndGlyph } from '../utils/fontUtils';
 import { convertFontToGlyph } from './convertFontToGlyph';
 

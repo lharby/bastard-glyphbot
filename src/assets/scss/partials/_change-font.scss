@@ -5,8 +5,6 @@ https://slackwise.org.uk
 2012 - present
 */
 
-const htmlElem = document.querySelector('html');
-
-export {
-    htmlElem
+#changeFont {
+    margin: 0.5rem 0;
 }

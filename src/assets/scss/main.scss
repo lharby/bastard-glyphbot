@@ -6,6 +6,7 @@ https://slackwise.org.uk
 */
 
 @use './functions/variables';
+@use './functions/typography';
 
 @use './core/layout';
 
@@ -14,3 +15,4 @@ https://slackwise.org.uk
 @use './partials/svg';
 @use './partials/font-utils';
 @use './partials/characters';
+@use './partials/change-font';
