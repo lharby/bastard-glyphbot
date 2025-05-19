@@ -77,7 +77,6 @@ var convertFontToGlyph = (fontName, letter, x, y) => {
       svgElem.insertAdjacentHTML("beforeend", template);
       svgElem.setAttribute("width", window.innerWidth - 50 + "px");
       svgElem.setAttribute("height", window.innerHeight + "px");
-      console.log(font);
     }
   });
 };
@@ -102,7 +101,7 @@ var renderSVG = () => {
     }
     elem2.innerHTML = `<tspan x=${xVal} y=${yVal} >${rndForm}</tspan>`;
     svgElem2.appendChild(elem2);
-    console.log(rndFontFamilyInit, rndForm, className);
+    console.table(`glyph: ${rndForm}`);
     convertFontToGlyph(rndFontFamilyInit, rndForm, xVal, yVal);
   }
   svgElem2.setAttribute("width", window.innerWidth - 50 + "px");

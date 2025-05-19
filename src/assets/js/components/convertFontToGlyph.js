@@ -22,7 +22,6 @@ const convertFontToGlyph = (fontName, letter, x, y) => {
             svgElem.insertAdjacentHTML('beforeend', template);
             svgElem.setAttribute('width', (window.innerWidth - 50) + 'px');
             svgElem.setAttribute('height', window.innerHeight + 'px');
-            console.log(font);
         }
     });
 }
